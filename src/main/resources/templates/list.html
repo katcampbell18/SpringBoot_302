@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="/add">Add a Task</a><br />
+    <div th:each="task : ${tasks}">
+        <h4 th:inline="text">[[${task.title}]]</h4>
+        <h4 th:inline="text">[[${task.dueDate}]]</h4>
+        <h5 th:inline="text">[[${task.priority}]]</h5>
+    </div>
+</body>
+</html>
