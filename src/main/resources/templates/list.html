@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xlmns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
     <a href="/add">Add a Task</a><br />
-    <div th:each="task : ${tasks}">
-        <h4 th:inline="text">[[${task.title}]]</h4>
-        <h4 th:inline="text">[[${task.dueDate}]]</h4>
-        <h5 th:inline="text">[[${task.priority}]]</h5>
-    </div>
-</body>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:inline="text">[[${task.title}]]</td>
+        <td th:inline="text">[[${task.dueDate}]]</td>
+        <td th:inline="text">[[${task.priority}]]</td>
+        <td>
+            <a th:href="@{/update/{id}(id=${task.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${task.id})}">Detail</a> -
+            <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
 </html>
