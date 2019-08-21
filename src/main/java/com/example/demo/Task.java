@@ -26,6 +26,15 @@ public class Task {
     @Min(1)
     private int priority;
 
+    public Task(@NotNull @Size(min = 4) String title, @NotNull @Size(min = 4) String dueDate, @NotNull @Min(1) int priority) {
+        this.title = title;
+        this.dueDate = dueDate;
+        this.priority = priority;
+    }
+
+    public Task() {
+    }
+
     public long getId() {
         return id;
     }
